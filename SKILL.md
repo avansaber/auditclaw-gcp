@@ -1,12 +1,21 @@
 ---
 name: auditclaw-gcp
-description: GCP compliance evidence collection for auditclaw-grc
+description: GCP compliance evidence collection for auditclaw-grc. 12 read-only checks across Cloud Storage, firewall, IAM, logging, KMS, DNS, BigQuery, Compute, and Cloud SQL.
+version: 1.0.0
 user-invocable: true
-metadata: {"openclaw":{"requires":{"bins":["python3"],"env":["GCP_PROJECT_ID"]}}}
+metadata: {"openclaw":{"type":"executable","requires":{"bins":["python3"],"env":["GCP_PROJECT_ID"]}}}
 ---
-# GCP Evidence Collection
+# AuditClaw GCP
 
-Companion skill for auditclaw-grc. Collects compliance evidence from Google Cloud Platform projects.
+Companion skill for auditclaw-grc. Collects compliance evidence from Google Cloud Platform projects using read-only API calls.
+
+**12 checks | Viewer + Security Reviewer roles only | Evidence stored in shared GRC database**
+
+## Security Model
+- **Read-only access**: Requires 6 read-only IAM roles (Viewer, Security Reviewer, Cloud SQL Viewer, Logging Viewer, DNS Reader, Cloud KMS Viewer). No write/modify permissions.
+- **Credentials**: Uses standard GCP credential chain (`GOOGLE_APPLICATION_CREDENTIALS` or `gcloud auth`). No credentials stored by this skill.
+- **Dependencies**: Google Cloud SDK packages (all pinned in requirements.txt)
+- **Data flow**: Check results stored as evidence in `~/.openclaw/grc/compliance.sqlite` via auditclaw-grc
 
 ## Prerequisites
 - GCP credentials configured (`gcloud auth application-default login` or service account JSON)
