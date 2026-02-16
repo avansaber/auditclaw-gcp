@@ -3,7 +3,8 @@ name: auditclaw-gcp
 description: GCP compliance evidence collection for auditclaw-grc. 12 read-only checks across Cloud Storage, firewall, IAM, logging, KMS, DNS, BigQuery, Compute, and Cloud SQL.
 version: 1.0.1
 user-invocable: true
-homepage: https://github.com/avansaber/auditclaw-gcp
+homepage: https://www.auditclaw.ai
+source: https://github.com/avansaber/auditclaw-gcp
 metadata: {"openclaw":{"type":"executable","requires":{"bins":["python3"],"env":["GCP_PROJECT_ID"]}}}
 ---
 # AuditClaw GCP
