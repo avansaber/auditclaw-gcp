@@ -5,7 +5,7 @@ version: 1.0.1
 user-invocable: true
 homepage: https://www.auditclaw.ai
 source: https://github.com/avansaber/auditclaw-gcp
-metadata: {"openclaw":{"type":"executable","requires":{"bins":["python3"],"env":["GCP_PROJECT_ID"]}}}
+metadata: {"openclaw":{"type":"executable","install":{"pip":"scripts/requirements.txt"},"requires":{"bins":["python3"],"env":["GCP_PROJECT_ID","GOOGLE_APPLICATION_CREDENTIALS"]}}}
 ---
 # AuditClaw GCP
 
